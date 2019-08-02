@@ -57,9 +57,12 @@ export default class ShopBar extends Component{
           </View>
           <Animated.View style={[styles.iconWrap, {
             transform: [
-              {scale: this.state.scale.interpolate({
-                inputRange: [0, 1, 2],outputRange:[1, 0.8, 1]
-              })}
+              {scale: this.state.scale.interpolate(
+                {
+                  inputRange: [0, 1, 2],
+                  outputRange:[1, 0.8, 1]
+                }
+              )}
             ]
           }]}>
             <View style={[styles.iconView, lens.length?{backgroundColor:"#3190e8"}:null]}>
@@ -94,7 +97,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     position: "absolute",
     top: 0,
-    right: 0
+    right:0,
   },
   iconWrap: {
     position: "absolute",

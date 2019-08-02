@@ -25,16 +25,18 @@ export default class Address extends Component {
           {
             name: "Lei",
             phone: "13581970418",
-            tag: "公司",
+            tag: 1,
             color: "#0096ff",
-            address: "微软亚太研发集团"
+            address: "微软亚太研发集团",
+            gender:1
           },
           {
             name: "Lei",
             phone: "13581970418",
-            tag: "家",
+            tag: 0,
             color: "#ff6000",
-            address: "北京朝阳区三里屯SOHO"
+            address: "北京朝阳区三里屯SOHO",
+            gender:0
           }
         ]
       }

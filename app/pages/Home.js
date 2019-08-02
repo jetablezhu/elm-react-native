@@ -105,8 +105,8 @@ export default class HomePage extends Component {
             translateY: searchY
           }]
         }}>
-          <TouchableWithoutFeedback onPress={()=>{}}>
-            <View style={[styles.searchBtn, {backgroundColor: "#fff"}]}>
+          <TouchableWithoutFeedback onPress={this.openSearch.bind(this)}>
+            <View style={styles.searchBtn}>
               <Icon name="ios-search-outline" size={20} color="#666" />
               <Text style={{fontSize: 13, color:"#666", marginLeft: 5}}>{"输入商家，商品名称"}</Text>
             </View>
@@ -146,7 +146,7 @@ export default class HomePage extends Component {
           {translateY: showY}
         ]
       }]}>
-        <TouchableWithoutFeedback onPress={()=>{}}>
+        <TouchableWithoutFeedback onPress={this.openSearch.bind(this)}>
           <View style={[styles.searchBtn, {backgroundColor: "#fff"}]}>
             <Icon name="ios-search-outline" size={20} color="#666" />
             <Text style={{fontSize: 13, color:"#666", marginLeft: 5}}>{"输入商家，商品名称"}</Text>
@@ -337,7 +337,7 @@ export default class HomePage extends Component {
                 let layout = (
                   <View style={styles.lTimeList}>
                     <Image source={LocalImg["nice"+i]} style={{height: size, width: size, resizeMode: 'cover'}}/>
-                    <Text numberOfLines={1} style={{fontSize: px2dp(12), width: size, color: "#333", marginVertical: 5}}>{item}</Text>
+                    <Text numberOfLines={1} style={{fontSize: px2dp(12), width: size, color: "#333", marginVertical: 5,textAlign:"center"}}>{item}</Text>
                     <Text numberOfLines={1} style={styles.qtag}>{"大牌精选"}</Text>
                   </View>
                 )
@@ -437,7 +437,7 @@ export default class HomePage extends Component {
           </View>
         </ScrollView>
         {this._renderFixHeader()}
-        <SearchView show={this.state.searchView} scrollY={this.state.scrollY}/>
+        <SearchView show={this.state.searchView} scrollY={this.state.scrollY} closeView={this.closeSearch.bind(this)}/>
         <LbsModal
           modalVisible={this.state.modalVisible}
           location={this.state.location}
@@ -454,7 +454,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#0398ff",
     height: headH,
     paddingTop: px2dp(isIOS?30:10),
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
   },
   typesView: {
     paddingBottom: 10,
@@ -472,7 +472,7 @@ const styles = StyleSheet.create({
     height: InputHeight,
     overflow: "hidden",
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   placeholder: {
     height: InputHeight,
@@ -491,7 +491,7 @@ const styles = StyleSheet.create({
   },
   weather: {
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
   textInput:{
     flex: 1,
@@ -520,7 +520,8 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   scrollView: {
-    marginBottom: px2dp(46)
+    //marginBottom: px2dp(46)
+    marginBottom:0
   },
   recom: {
     flexDirection: "row",

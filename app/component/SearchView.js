@@ -38,7 +38,7 @@ export default class SearchView extends Component {
       <ScrollView style={styles.scrollView}>
         <View style={styles.head}>
           <Text style={{fontSize: px2dp(13), color: "#333"}}>{"历史搜索"}</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={this.props.closeView}>
             <Icon name={"ios-trash"} size={px2dp(16)} color="#333" />
           </TouchableOpacity>
         </View>

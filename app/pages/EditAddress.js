@@ -58,7 +58,7 @@ export default class EditAddress extends Component {
             <View style={styles.item}>
               <Text style={styles.label}>{"联系人"}</Text>
               <View style={{flex: 1}}>
-                <TextInput underlineColorAndroid="transparent" autoCapitalize={"none"} ref={"name"} style={styles.textInput} placeholder="姓名" placeholderTextColor="#aaa"/>
+                <TextInput underlineColorAndroid="transparent" autoCapitalize={"none"} ref={"name"} style={styles.textInput} placeholder="姓名" placeholderTextColor="#aaa" value={this.state.name}/>
                 <View style={{paddingTop: 10, marginTop: 10, flexDirection:"row", borderTopWidth: 1, borderTopColor: "#f8f8f8"}}>
                   <Button style={{marginLeft: 10}} onPress={()=>{this.setState({gender:0})}}>
                     <Text style={[styles.radio, this.state.gender===0?styles.active:null]}>{"先生"}</Text>
@@ -72,7 +72,7 @@ export default class EditAddress extends Component {
             <View style={styles.item}>
               <Text style={styles.label}>{"电话"}</Text>
               <View style={{flex: 1}}>
-                <TextInput underlineColorAndroid="transparent" keyboardType={"numeric"} style={styles.textInput} placeholder="收货人电话" placeholderTextColor="#aaa"/>
+                <TextInput underlineColorAndroid="transparent" keyboardType={"numeric"} style={styles.textInput} placeholder="收货人电话" placeholderTextColor="#aaa" value={this.state.phone}/>
               </View>
             </View>
             <View style={styles.item}>
@@ -80,7 +80,7 @@ export default class EditAddress extends Component {
               <View style={{flex: 1}}>
                 <TextInput underlineColorAndroid="transparent" style={styles.textInput} placeholder="小区/写字楼/学校" placeholderTextColor="#aaa"/>
                 <View style={{paddingTop: 10,marginTop: 10, flexDirection:"row", borderTopWidth: 1, borderTopColor: "#f8f8f8"}}>
-                  <TextInput underlineColorAndroid="transparent" style={styles.textInput} placeholder="详细地址" placeholderTextColor="#aaa"/>
+                  <TextInput underlineColorAndroid="transparent" style={styles.textInput} placeholder="详细地址" placeholderTextColor="#aaa" value={this.state.address}/>
                 </View>
               </View>
             </View>

@@ -76,7 +76,8 @@ export default class Breakfast extends Component {
     setTimeout(() => {
       this.setState({
         data: data.breakFastData,
-        isRefreshing: false
+        isRefreshing: false,
+        noData:!(data.breakFastData && data.breakFastData.length)
       })
     }, 1500)
   }
@@ -87,6 +88,9 @@ export default class Breakfast extends Component {
         <Text style={{color: "#aaa"}}>{"无订单记录"}</Text>
       </View>
     )
+  }
+  componentDidMount(){
+    this._onRefresh()
   }
   render(){
     return (
@@ -102,14 +106,13 @@ export default class Breakfast extends Component {
           />
         }
       >
+      <Text key={"title"} style={{textAlign: "center", color: "#999", fontSize: px2dp(12), paddingTop: 20}}>{"早餐订单"}</Text>
         {
-          (()=>{
-            return this.state.data.length?
-              [<Text key={"title"} style={{textAlign: "center", color: "#999", fontSize: px2dp(12), paddingTop: 20}}>{"早餐订单"}</Text>]
-                .concat(this.state.data.map((item, i) => {
-                return <Item key={i} {...item} />
-              })):this._noData()
-          })()
+          this.state.noData?
+            this._noData():
+            this.state.data.map((item, i) => {
+              return <Item key={i} {...item} />
+            })
         }
       </ScrollView>
     )

@@ -60,22 +60,25 @@ export default class LbsModal extends Component {
     this.setState({
       loading: true
     })
-    setTimeout(() => {
-      this.setState({
-        loading: false
-      })
-      this.props.setLocation("中关村")
-    }, 1200)
-    /*
+    // setTimeout(() => {
+    //   this.setState({
+    //     loading: false
+    //   })
+    //   this.props.setLocation("中关村")
+    // }, 1200)
+    
     navigator.geolocation.getCurrentPosition(
       (position) => {
         var initialPosition = JSON.stringify(position);
         console.log("title",initialPosition)
-        this.setState({initialPosition});
+        this.props.setLocation(position.coords.latitude);
+        this.setState({
+          loading: false
+        });
       },
       (error) => AlertIOS.alert("title",JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-    )*/
+    )
   }
   render(){
     return (

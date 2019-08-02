@@ -75,16 +75,47 @@ export default class DetailPage extends Component {
     }
   }
   componentDidMount(){
+    console.log(this.state)
     let marginTop = 18+px2dp(80+this.state.data.activities.length*18)
     let { scrollY } = this.refs.goodsList.state
     let activeHeight = px2dp(18)*2
     this.setState({
-      activeOpacity: scrollY.interpolate({inputRange: [0, activeHeight],outputRange: [1, 0]}),
-      bgScale: scrollY.interpolate({inputRange: [ -marginTop, 0, marginTop],outputRange: [2, 1, 1]}),
-      headOpacity: scrollY.interpolate({inputRange: [0, activeHeight, marginTop],outputRange: [1, 1, 0]}),
-      titleOpacity: scrollY.interpolate({inputRange: [0, marginTop-10, marginTop],outputRange: [0, 0, 1]}),
-      scrollY: scrollY.interpolate({inputRange: [0, marginTop, marginTop],outputRange: [0, -marginTop, -marginTop]}),
-      bgY: scrollY.interpolate({inputRange: [ -marginTop, 0, marginTop, marginTop],outputRange: [marginTop/2, 0, -marginTop/3, -marginTop/3]})
+      activeOpacity: scrollY.interpolate(
+        {
+          inputRange: [0, activeHeight],
+          outputRange: [1, 0]
+        }
+      ),
+      bgScale: scrollY.interpolate(
+        {
+          inputRange: [ -marginTop, 0, marginTop],
+          outputRange: [2, 1, 1]
+        }
+      ),
+      headOpacity: scrollY.interpolate(
+        {
+          inputRange: [0, activeHeight, marginTop],
+          outputRange: [1, 1, 0]
+        }
+      ),
+      titleOpacity: scrollY.interpolate(
+        {
+          inputRange: [0, marginTop-10, marginTop],
+          outputRange: [0, 0, 1]
+        }
+      ),
+      scrollY: scrollY.interpolate(
+        {
+          inputRange: [0, marginTop, marginTop],
+          outputRange: [0, -marginTop, -marginTop]
+        }
+      ),
+      bgY: scrollY.interpolate(
+        {
+          inputRange: [ -marginTop, 0, marginTop, marginTop],
+          outputRange: [marginTop/2, 0, -marginTop/3, -marginTop/3]
+        }
+      )
     })
   }
   back(){
@@ -237,7 +268,7 @@ export default class DetailPage extends Component {
           style={[styles.tmpBtn, {top: this.state.addBtnY}]}
           renderChildren={() => {
             return (
-              <View style={{width:px2dp(14), height:px2dp(14), backgroundColor:"#3190e8", borderRadius: px2dp(7), overflow:"hidden"}}></View>
+              <View style={{width:px2dp(24), height:px2dp(24), backgroundColor:"#3190e8", borderRadius: px2dp(12), overflow:"hidden"}}></View>
             )
           }}
           animateEnd={this.parabolicEnd.bind(this)}
@@ -266,7 +297,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     paddingTop: NavBar.topbarHeight,
-    backgroundColor: "rgba(0,0,0,.3)"
+    backgroundColor: "rgba(0,0,0,.3)",
   },
   bg:{
     width,

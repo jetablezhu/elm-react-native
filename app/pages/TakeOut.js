@@ -17,7 +17,7 @@ import {
   TouchableHighlight,
   TouchableNativeFeedback
 } from 'react-native'
-
+import LocalImg from '../images'
 import px2dp from '../util'
 import data from '../data'
 
@@ -78,9 +78,18 @@ export default class TakeOut extends Component {
     setTimeout(() => {
       this.setState({
         data: data.orderData,
-        isRefreshing: false
+        isRefreshing: false,
+        noData:!(data.orderData && data.orderData.length)
       })
     }, 1500)
+  }
+  _noData(){
+    return (
+      <View style={{alignItems: "center", paddingTop: 50}}>
+        <Image source={LocalImg.noData} style={styles.noData} />
+        <Text style={{color: "#aaa"}}>{"无订单记录"}</Text>
+      </View>
+    )
   }
   render(){
     return (
@@ -98,9 +107,11 @@ export default class TakeOut extends Component {
       >
         <Text style={{textAlign: "center", color: "#999", fontSize: px2dp(12), paddingTop: 20}}>{"近期订单"}</Text>
         {
-          this.state.data.map((item, i) => {
-            return <Item key={i} {...item} />
-          })
+          this.state.noData?
+            this._noData():
+            this.state.data.map((item, i) => {
+              return <Item key={i} {...item} />
+            })
         }
       </ScrollView>
     )
@@ -129,5 +140,11 @@ const styles = StyleSheet.create({
   info: {
     paddingRight: 16,
     flex: 1
+  },
+  noData: {
+    width: 80,
+    height: 80,
+    resizeMode: "cover",
+    marginBottom: 16
   }
 })

@@ -41,7 +41,6 @@ export default class Comments extends Component {
       })
   }
   renderComments(){
-    let scale = 1/5*55
     return [
       {avatar: LocalImg.avatar, name: "_平***空", scores: 1, time: "2017-01-01", content: "味道跟屎一样！！熏死我了。。", tag: "分量一般 味道不好"},
       {avatar: LocalImg.avatar, name: "_平***空", scores: 2, time: "2017-01-01", content: "味道还可以，尤其是那个大便。。", tag: "味道还可以"}]
@@ -78,7 +77,7 @@ export default class Comments extends Component {
     })
   }
   render(){
-    let scale1 = 4.5/5*55
+    let scale1 = 3.5/5*55
     let scale2 = 4.6/5*55
     return (
       <View style={{flex: 1}}>
@@ -101,7 +100,7 @@ export default class Comments extends Component {
                     <Image source={LocalImg.star1} style={{height: 10, width: 55}}/>
                   </View>
                 </View>
-                <Text style={{fontSize: px2dp(14),color: "#ff6000"}}>{"4.5"}</Text>
+                <Text style={{fontSize: px2dp(14),color: "#ff6000"}}>{"3.5"}</Text>
               </View>
               <View style={{flexDirection:"row", justifyContent:"center", alignItems: "center"}}>
                 <Text style={{fontSize: px2dp(13),color: "#333", paddingVertical: 3}}>{"商品评分"}</Text>

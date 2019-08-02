@@ -20,9 +20,9 @@ export default class Discover extends Component {
   render(){
     return (
       <View style={{flex: 1, backgroundColor: "#f3f3f3"}}>
-        <NavBar title="发现"/>
+        <NavBar title="发现" />
         <MyWebView
-          source={{uri: 'https://www.duiba.com.cn/chome/index?spm=14695.1.1.1'}}
+          source={{uri: 'https://weibo.com/?category=1760'}}
           domStorageEnabled={true}
           javaScriptEnabled={true}
         />
